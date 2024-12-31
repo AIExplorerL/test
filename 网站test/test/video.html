@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoHub - 视频分享平台</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        .video-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .video-thumbnail {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+        
+        .category-tag {
+            transition: all 0.3s ease;
+        }
+        
+        .category-tag:hover {
+            background-color: #4F46E5;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-8">
+                    <a href="#" class="flex items-center space-x-2">
+                        <i class="fas fa-play-circle text-indigo-600 text-3xl"></i>
+                        <span class="text-2xl font-bold text-gray-800">VideoHub</span>
+                    </a>
+                    <div class="hidden md:flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-indigo-600">首页</a>
+                        <a href="#" class="text-gray-600 hover:text-indigo-600">分类</a>
+                        <a href="#" class="text-gray-600 hover:text-indigo-600">排行榜</a>
+                        <a href="#" class="text-gray-600 hover:text-indigo-600">收藏</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="搜索视频..." 
+                            class="w-64 px-4 py-2 rounded-full border focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <button class="absolute right-3 top-2.5 text-gray-400 hover:text-indigo-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <button class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700">
+                        上传视频
+                    </button>
+                    <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-user text-gray-500"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-6 pt-20">
+        <!-- 分类标签 -->
+        <div class="flex flex-wrap gap-4 py-6">
+            <a href="#" class="category-tag px-4 py-2 rounded-full bg-white shadow-sm hover:shadow-md">
+                全部
+            </a>
+            <a href="#" class="category-tag px-4 py-2 rounded-full bg-white shadow-sm hover:shadow-md">
+                音乐
+            </a>
+            <a href="#" class="category-tag px-4 py-2 rounded-full bg-white shadow-sm hover:shadow-md">
+                游戏
+            </a>
+            <a href="#" class="category-tag px-4 py-2 rounded-full bg-white shadow-sm hover:shadow-md">
+                电影
+            </a>
+            <a href="#" class="category-tag px-4 py-2 rounded-full bg-white shadow-sm hover:shadow-md">
+                动画
+            </a>
+            <a href="#" class="category-tag px-4 py-2 rounded-full bg-white shadow-sm hover:shadow-md">
+                科技
+            </a>
+        </div>
+
+        <!-- 视频网格 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- 视频卡片 -->
+            <div class="video-card bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="relative">
+                    <img src="https://picsum.photos/400/225" alt="视频缩略图" class="video-thumbnail w-full">
+                    <span class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-sm px-2 py-1 rounded">
+                        12:34
+                    </span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">视频标题会在这里显示</h3>
+                    <div class="flex items-center justify-between text-sm text-gray-500">
+                        <span>10万次观看</span>
+                        <span>2小时前</span>
+                    </div>
+                    <div class="flex items-center space-x-2 mt-3">
+                        <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+                            <i class="fas fa-user text-gray-500 text-sm"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">作者名称</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 更多视频卡片 -->
+            <!-- 复制上面的视频卡片结构并修改内容 -->
+        </div>
+
+        <!-- 加载更多按钮 -->
+        <div class="text-center py-8">
+            <button class="bg-white text-indigo-600 px-6 py-3 rounded-full shadow-sm hover:shadow-md">
+                加载更多 <i class="fas fa-chevron-down ml-2"></i>
+            </button>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white mt-12 py-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">关于我们</h4>
+                    <p class="text-gray-600">
+                        VideoHub是一个视频分享平台，致力于为用户提供优质的视频内容和分享体验。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-indigo-600">使用条款</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-indigo-600">隐私政策</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-indigo-600">帮助中心</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-indigo-600">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">社区</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-indigo-600">创作者中心</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-indigo-600">社区指南</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-indigo-600">反馈建议</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">关注我们</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-indigo-600">
+                            <i class="fab fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-indigo-600">
+                            <i class="fab fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-indigo-600">
+                            <i class="fab fa-qq text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t mt-8 pt-8 text-center text-gray-600">
+                <p>© 2024 VideoHub. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 这里可以添加交互功能
+        // 例如：视频加载、搜索功能、分类筛选等
+    </script>
+</body>
+</html> 

@@ -1,0 +1,12 @@
+[
+    {
+        "username": "李建君",
+        "password": "990708",
+        "isAdmin": true
+    },
+    {
+        "username": "test",
+        "password": "000000",
+        "isAdmin": false
+    }
+] 
